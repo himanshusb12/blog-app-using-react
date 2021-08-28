@@ -1,0 +1,30 @@
+.App {
+  text-align: justify;
+}
+
+.App {
+  margin: 1%;
+}
+
+body { 
+  padding-top: 40px; 
+}
+
+nav {
+  margin-left: 1%;
+}
+
+.Comment {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.Comment span {
+  color: aqua;
+  font-family: Lucida Sans;
+}
+
+.commentLine {
+  font-style: italic;
+}
