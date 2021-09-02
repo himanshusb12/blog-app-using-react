@@ -17,7 +17,7 @@ export class AddBlog extends Component {
         let blogs = this.props.getAllBlogs().filter(b => b.id !== blog.id);
         blogs.unshift(blog);
         this.props.setAllBlogs(blogs);
-        console.log(this.getAllBlogs());
+        window.alert('Blog saved successfully. Go to home page to see it.')
     }
 
     render() {
