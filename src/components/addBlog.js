@@ -4,7 +4,6 @@ import { Component, createRef } from "react";
 export class AddBlog extends Component {
     constructor(props) {
         super(props);
-        // this.getAllBlogs = props.getAllBlogs;
         this.blogId = createRef();
         this.blogTitle = createRef();
         this.blogDesc = createRef();
@@ -17,7 +16,6 @@ export class AddBlog extends Component {
                      'description': this.blogDesc.current.value};
         let blogs = this.props.getAllBlogs().filter(b => b.id !== blog.id);
         blogs.unshift(blog);
-        // localStorage.setItem('blogs', JSON.stringify(blogs));
         this.props.setAllBlogs(blogs);
         console.log(this.getAllBlogs());
     }

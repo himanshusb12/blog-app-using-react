@@ -1,12 +1,25 @@
 import { Component } from "react";
-import blogComments from "../data/comments.json";
 import { Comment } from "./comment";
 
 
-export class Blog extends Component {
+export class Blog extends Component {    
     constructor(props) {
         super(props);
-        this.state = {comments: blogComments.filter((blogComment) => blogComment.blogId === this.props.blog.id)}
+        this.state = {comments: []}
+    }
+
+    async componentDidMount() {
+        await fetch('http://localhost:3001/api/comments', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        }).then(response => response.json())
+        .then(data => {
+            this.setState({comments: data.filter((blogComment) => 
+                blogComment.blogId === this.props.blog.id)});
+        })
+        .catch(error => window.alert(`Error occured while reading comments json - ${error}`));
     }
 
     render() {
